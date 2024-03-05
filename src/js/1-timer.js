@@ -17,6 +17,7 @@ const msgOptions = {
     position: 'topRight',
     class: 'message',
 };
+
 let userSelectedDate;
 
 startBtn.disabled = true;
@@ -69,13 +70,13 @@ function startTimer() {
 
 function renderTime(diff) {
     const { days, hours, minutes, seconds } = convertMs(diff);
-    timerEl.querySelector("[data-days]").textContent = addZero(days);
-    timerEl.querySelector("[data-hours]").textContent = addZero(hours);
-    timerEl.querySelector("[data-minutes]").textContent = addZero(minutes);
-    timerEl.querySelector("[data-seconds]").textContent = addZero(seconds);
+    timerEl.querySelector("[data-days]").textContent = addLeadingZero(days);
+    timerEl.querySelector("[data-hours]").textContent = addLeadingZero(hours);
+    timerEl.querySelector("[data-minutes]").textContent = addLeadingZero(minutes);
+    timerEl.querySelector("[data-seconds]").textContent = addLeadingZero(seconds);
 }
 
-function addZero(value) {
+function addLeadingZero(value) {
     return String(value).padStart(2, "0")
 }
 
